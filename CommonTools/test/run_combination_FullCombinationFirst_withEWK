@@ -1,0 +1,303 @@
+
+
+
+
+#############################################
+#############################################
+#
+#      2l2nu(7+8TeV)+4l(7+8TeV)
+#
+
+#############################################
+#
+#      f4g
+#
+
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f4g_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+python buildWZworkspace_ZZ_4l_7TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_7TeV_withSignalUnc_channels_f4
+
+rm wv_semil_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4_8TeV.txt
+combineCards.py wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4_8TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_ZZ4l.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_ZZ4l.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV_fullComb.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_7TeV_f4boosted.txt wv_semil_elmu_ZZ_4l_7TeV_f4boosted.txt wv_semil_mu_ZZ_4l_7TeV_f4boosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV_fullComb.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV_fullComb.txt -o Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_7TeV_f4,el_ZZ_4l_7TeV_f4,elmu_ZZ_4l_7TeV_f4,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_fullComb_expected.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc_fullComb.root
+
+#############################################
+#
+#      f5z
+#
+
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f5z_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+python buildWZworkspace_ZZ_4l_7TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_7TeV_withSignalUnc_channels_f5
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV_fullComb.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_7TeV_f5boosted.txt wv_semil_elmu_ZZ_4l_7TeV_f5boosted.txt wv_semil_mu_ZZ_4l_7TeV_f5boosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV_fullComb.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV_fullComb.txt -o Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_7TeV_f5,el_ZZ_4l_7TeV_f5,elmu_ZZ_4l_7TeV_f5,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc_fullComb.root
+
+#############################################
+#
+#      f4z
+#
+
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f4z_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+python buildWZworkspace_ZZ_4l_7TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_7TeV_withSignalUnc_channels_f4
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4z_7and8TeV_fullComb.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_7TeV_f4boosted.txt wv_semil_elmu_ZZ_4l_7TeV_f4boosted.txt wv_semil_mu_ZZ_4l_7TeV_f4boosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4z_7and8TeV_fullComb.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4z_7and8TeV_fullComb.txt -o Example_ZZ2l2nu_ZZ4l_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_7TeV_f4,el_ZZ_4l_7TeV_f4,elmu_ZZ_4l_7TeV_f4,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc_fullComb.root
+
+#############################################
+#
+#      f5g
+#
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f5g_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+python buildWZworkspace_ZZ_4l_7TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_7TeV_withSignalUnc_channels_f5
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV_fullComb.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_7TeV_f5boosted.txt wv_semil_elmu_ZZ_4l_7TeV_f5boosted.txt wv_semil_mu_ZZ_4l_7TeV_f5boosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV_fullComb.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV_fullComb.txt -o Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_7TeV_f5,el_ZZ_4l_7TeV_f5,elmu_ZZ_4l_7TeV_f5,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc_fullComb.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_fullComb.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc_fullComb.root
+
+
+
+#############################################
+#############################################
+#
+#      other combinations and individual channels
+#
+
+#############################################
+#
+#      f4z 
+#
+
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f4z_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_8TeV.txt
+
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_8TeV.txt -o Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7TeV.txt
+
+combineCards.py wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7TeV.txt -o Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.025,0.025 --PO range_dkg=-0.025,0.025
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt -o Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_exp.root
+combine Example_ZZ2l2nu_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_noUnc_exp.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_scaleaTGCUncOptimistic_f4z_7and8TeV.txt -o Example_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+
+combine Example_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+#############################################
+#
+#      f4g 
+#
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f4g_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f4_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt
+combineCards.py wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.025,0.025 --PO range_dkg=-0.025,0.025
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt -o Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_ZZ4l_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+rm wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7and8TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+rm wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt
+combineCards.py  wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_7TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f4g_8TeV.txt -o Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+#############################################
+#
+#      f5z 
+#
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f5z_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7TeV.txt
+combineCards.py wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7TeV.txt -o Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.025,0.025 --PO range_dkg=-0.025,0.025
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_8TeV.txt -o Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt -o Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_ZZ4l_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+rm wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5z_7and8TeV.txt -o Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_f5z_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P lZ --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+
+#############################################
+#
+#      f5g 
+#
+
+python buildWZworkspace_forZZ_1sigma_allErrOK_withEWKSyst_signalShapeFix_f5g_ifLessThen1SetTo1_2604Files_SMaTGCfit_SMZZasBKG_CLsUnc.py --config=config_ZZ_Zlldata_withSherpaSyst_withEWKSyst_binBYbin_SMZZasbkg_asSM_7and8TeV
+python buildWZworkspace_ZZ_4l_8TeV_f5_withSignalUnc_channels_2604files_SMaTGCfit.py --config=config_ZZ_4l_8TeV_withSignalUnc_channels
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_8TeV.txt -o Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7TeV.txt
+combineCards.py wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7TeV.txt -o Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.025,0.025 --PO range_dkg=-0.025,0.025
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+
+rm wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt wv_semil_el_ZZ_4l_8TeVboosted.txt wv_semil_elmu_ZZ_4l_8TeVboosted.txt wv_semil_mu_ZZ_4l_8TeVboosted.txt > wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_ZZ4l_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt -o Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg,mu_ZZ_4l_8TeV,el_ZZ_4l_8TeV,elmu_ZZ_4l_8TeV --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_ZZ4l_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+
+rm wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt
+combineCards.py wv_semil_ch1_smzzasbkgboosted.txt wv_semil_ch2_smzzasbkgboosted.txt wv_semil_ch3_smzzasbkgboosted.txt wv_semil_ch4_smzzasbkgboosted.txt wv_semil_ch5_smzzasbkgboosted.txt wv_semil_ch6_smzzasbkgboosted.txt wv_semil_ch7_smzzasbkgboosted.txt wv_semil_ch8_smzzasbkgboosted.txt wv_semil_ch9_smzzasbkgboosted.txt wv_semil_ch10_smzzasbkgboosted.txt wv_semil_ch11_smzzasbkgboosted.txt wv_semil_ch12_smzzasbkgboosted.txt > wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_7and8TeV.txt -o Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg,ch2_smzzasbkg,ch3_smzzasbkg,ch4_smzzasbkg,ch5_smzzasbkg,ch6_smzzasbkg,ch7_smzzasbkg,ch8_smzzasbkg,ch9_smzzasbkg,ch10_smzzasbkg,ch11_smzzasbkg,ch12_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected.root
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_noUnc.root
+combine Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1 -S 0
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG_expected_noUnc.root
+

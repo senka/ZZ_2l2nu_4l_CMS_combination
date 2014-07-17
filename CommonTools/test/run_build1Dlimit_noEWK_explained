@@ -5,6 +5,7 @@ echo "limits without EWK correction" > limits_noEWK
 #   f4z
 #
 
+echo -e "\n\n############## f4z ###############" >> limits_noEWK
 # 2l2nu(7+8TeV)+4l(7+8TeV) -> rerun
 echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
 echo -e "\t\tobs" >> limits_noEWK
@@ -56,6 +57,7 @@ python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH1
 #   f4g
 #
 
+echo -e "\n\n############## f4g ###############" >> limits_noEWK
 # 2l2nu(7+8TeV)+4l(7+8TeV)
 echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
 echo -e "\t\tobs" >> limits_noEWK
@@ -107,6 +109,7 @@ python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH
 #   f5g
 #
 
+echo -e "\n\n############## f5g ###############" >> limits_noEWK
 # 2l2nu(7+8TeV)+4l(7+8TeV)
 echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
 echo -e "\t\tobs" >> limits_noEWK
@@ -155,6 +158,7 @@ python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH
 #   f5z
 #
 
+echo -e "\n\n############## f5z ###############" >> limits_noEWK
 # 2l2nu(7+8TeV)+4l(7+8TeV)
 echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
 echo -e "\t\tobs" >> limits_noEWK
