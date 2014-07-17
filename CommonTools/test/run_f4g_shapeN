@@ -1,0 +1,7 @@
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_shapeN.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen0SetTo0_2604files_SMaTGCfit_8TeV_shapeN.root
+python build1DInterval_dkg.py -0.025 0.025 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen0SetTo0_2604files_SMaTGCfit_8TeV_shapeN.root dkg > limits_f4g_8TeV_shapeN
+
+combine Example_ZZ2l2nu_f4g_2604Files_SMaTGCfit_8TeV_shapeN.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 -t -1 --expectSignal=1
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen0SetTo0_2604files_SMaTGCfit_8TeV_expected_shapeN.root
+python build1DInterval_dkg.py -0.025 0.025 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen0SetTo0_2604files_SMaTGCfit_8TeV_expected_shapeN.root dkg > limits_f4g_8TeV_exp_shapeN

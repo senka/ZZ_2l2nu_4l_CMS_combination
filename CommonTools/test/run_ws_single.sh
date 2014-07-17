@@ -1,0 +1,3 @@
+#!/bin/bash
+
+text2workspace.py -m 126 wv_semil_ZZ2l2nu_2604Files_allUnc_CLsUnc_SMZZasBKG_f5g_single.txt -o Example_ZZ2l2nu_f5g_2604Files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_SMZZasBKG.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc:dkglZModel_wz_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_SMZZasBKG_CLsUnc --PO channels=ch1_smzzasbkg --PO range_lZ=-0.008,0.008 --PO range_dkg=-0.008,0.008

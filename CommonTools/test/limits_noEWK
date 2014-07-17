@@ -1,0 +1,125 @@
+limits without EWK correction
+	2l2nu(7+8TeV)+4l(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00216,0.00257]
+		exp
+[?1034h95% CL Limit: [-0.00364,0.00392]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00205,0.00246]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00326,0.00358]
+	2l2nu(7+8TeV)+4l(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00222,0.00262]
+		exp
+[?1034h95% CL Limit: [-0.00368,0.00395]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00209,0.00249]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00328,0.00358]
+	2l2nu(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00272,0.00315]
+		exp
+[?1034h		obs noUnc
+[?1034h		exp noUnc
+[?1034h	2l2nu(7)
+		obs
+[?1034h95% CL Limit: [-0.0109,0.0113]
+	2l2nu(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00323,0.00364]
+	2l2nu(7+8TeV)+4l(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00296,0.00257]
+		exp
+[?1034h95% CL Limit: [-0.00459,0.00416]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00285,0.00233]
+		exp noUnc
+[?1034h95% CL Limit: [-0.0042,0.00368]
+	2l2nu(7+8TeV)+4l(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00305,0.00261]
+		exp
+[?1034h95% CL Limit: [-0.00464,0.00417]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00291,0.00235]
+		exp noUNc
+[?1034h95% CL Limit: [-0.00424,0.00368]
+	2l2nu(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00364,0.00323]
+		exp
+[?1034h95% CL Limit: [-0.00606,0.00537]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00326,0.00265]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00488,0.00419]
+	2l2nu(7)
+		obs
+[?1034h	2l2nu(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.0043,0.00366]
+	2l2nu(7+8TeV)+4l(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00261,0.00272]
+		exp
+[?1034h95% CL Limit: [-0.00427,0.00436]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00243,0.00262]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00382,0.00401]
+	2l2nu(7+8TeV)+4l(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00267,0.0028]
+		exp
+[?1034h95% CL Limit: [-0.00428,0.0044]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00246,0.00267]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00382,0.00403]
+	2l2nu(7+8TeV)
+		obs
+[?1034h		exp
+[?1034h		obs noUnc
+[?1034h		exp noUnc
+[?1034h	2l2nu(7)
+		obs
+[?1034h95% CL Limit: [-0.0133,0.0126]
+	2l2nu(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00377,0.0042]
+	2l2nu(7+8TeV)+4l(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00224,0.00227]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00201,0.00206]
+		exp
+[?1034h95% CL Limit: [-0.00363,0.00371]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00323,0.00331]
+	2l2nu(7+8TeV)+4l(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.0023,0.00233]
+		exp
+[?1034h95% CL Limit: [-0.00364,0.00372]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00205,0.00209]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00323,0.00332]
+	2l2nu(7+8TeV)
+		obs
+[?1034h95% CL Limit: [-0.00285,0.00302]
+		exp
+[?1034h95% CL Limit: [-0.00483,0.00508]
+		obs noUnc
+[?1034h95% CL Limit: [-0.00232,0.00246]
+		exp noUnc
+[?1034h95% CL Limit: [-0.00374,0.0039]
+	2l2nu(7)
+		obs
+[?1034h95% CL Limit: [-0.0104,0.0105]
+	2l2nu(8TeV)
+		obs
+[?1034h95% CL Limit: [-0.0032,0.00342]

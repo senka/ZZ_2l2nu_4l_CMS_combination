@@ -1,0 +1,202 @@
+echo "limits without EWK correction" > limits_noEWK
+
+#############################/
+#
+#   f4z
+#
+
+# 2l2nu(7+8TeV)+4l(7+8TeV) -> rerun
+echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_fullComb.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_fullComb.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc_fullComb.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc_fullComb.root lZ >> limits_noEWK
+
+
+# 2l2nu(7+8TeV)+4l(8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root lZ >> limits_noEWK
+
+# 2l2nu(7+8TeV)
+echo -e "\n\t2l2nu(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_exp.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7and8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc_exp.root lZ >> limits_noEWK
+
+# 2l2nu(7TeV)
+echo -e "\n\t2l2nu(7)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_smzzasbkg.root lZ >> limits_noEWK
+
+# 2l2nu(8TeV)
+echo -e "\n\t2l2nu(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_8TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+
+
+
+#############################/
+#
+#   f4g
+#
+
+# 2l2nu(7+8TeV)+4l(7+8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_fullComb.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_fullComb_expected.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc_fullComb.root dkg >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc_fullComb.root dkg >> limits_noEWK
+
+# 2l2nu(7+8TeV)+4l(8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root dkg >> limits_noEWK
+echo -e "\t\texp noUNc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root dkg >> limits_noEWK
+
+# 2l2nu(7+8TeV) -> rerun
+echo -e "\n\t2l2nu(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root dkg >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root dkg >> limits_noEWK
+
+
+# 2l2nu(7TeV) -> rerun
+echo -e "\n\t2l2nu(7)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+
+
+# 2l2nu(8TeV) -> rerun
+echo -e "\n\t2l2nu(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+
+
+#############################/
+#
+#   f5g
+#
+
+# 2l2nu(7+8TeV)+4l(7+8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_fullComb.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_fullComb.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc_fullComb.root dkg >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc_fullComb.root dkg >> limits_noEWK
+
+# 2l2nu(7+8TeV)+4l(8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root dkg >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root dkg >> limits_noEWK
+
+# 2l2nu(7+8TeV) -> rerun!
+echo -e "\n\t2l2nu(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root dkg >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root dkg >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root dkg >> limits_noEWK
+
+# 2l2nu(7TeV)
+echo -e "\n\t2l2nu(7)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK
+
+# 2l2nu(8TeV) -> rerun!
+echo -e "\n\t2l2nu(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5g_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root dkg >> limits_noEWK 
+
+#############################/
+#
+#   f5z
+#
+
+# 2l2nu(7+8TeV)+4l(7+8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_fullComb.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc_fullComb.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_fullComb.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc_fullComb.root lZ >> limits_noEWK
+
+# 2l2nu(7+8TeV)+4l(8TeV)
+echo -e "\n\t2l2nu(7+8TeV)+4l(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_ZZ4l_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root lZ >> limits_noEWK
+
+# 2l2nu(7+8TeV) -> rerun:
+echo -e "\n\t2l2nu(7+8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+echo -e "\t\texp" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected.root lZ >> limits_noEWK
+echo -e "\t\tobs noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_noUnc.root lZ >> limits_noEWK
+echo -e "\t\texp noUnc" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7and8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG_expected_noUnc.root lZ >> limits_noEWK
+
+# 2l2nu(7TeV)
+echo -e "\n\t2l2nu(7)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+
+#  2l2nu(8TeV)
+echo -e "\n\t2l2nu(8TeV)" >> limits_noEWK
+echo -e "\t\tobs" >> limits_noEWK
+python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f5z_ifLessThen1SetTo1_2604files_SMaTGCfit_8TeV_allUnc_CLsUnc_noEWK_SMZZasBKG.root lZ >> limits_noEWK
+
+
+

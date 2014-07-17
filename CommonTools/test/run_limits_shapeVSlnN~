@@ -1,0 +1,129 @@
+==========================================
+//
+//		lnN
+//
+
+python buildWZworkspace_lnNall_shapeVSlnN.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_lnNall_workspace.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_lnN_shapeVSlnN.txt
+combine Example_lnNall_workspace.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN.root
+
+==========================================
+//
+//		shape
+//
+
+python buildWZworkspace_shape_shapeVSlnN.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN.txt
+combine Example_shape_workspace.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN.root
+
+==========================================
+//
+//		lnN my tests
+//
+
+python buildWZworkspace_lnNall_shapeVSlnN_mytesting.py --config=config_shapeVSlnN_lnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_lnNall_workspace_mytests.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_lnN_shapeVSlnN_mytests.txt
+combine Example_lnNall_workspace_mytests.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN_mytests.root
+
+==========================================
+//
+//		lnN my tests (07.05.)
+//
+
+///////// ch6
+
+python buildWZworkspace_lnNall_shapeVSlnN_mytesting.py --config=config_shapeVSlnN_lnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_lnNall_workspace_mytests_lnNall_negative.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_lnN_shapeVSlnN_mytests_lnNall_negative.txt
+combine Example_lnNall_workspace_mytests_lnNall_negative.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN_mytests_lnNall_negative.root
+python build1DInterval_dkg.py -0.03 0.03  higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN_mytests_lnNall_negative.root dkg
+
+///////// ch5 and ch6
+
+python buildWZworkspace_lnNall_shapeVSlnN_mytesting.py --config=config_shapeVSlnN_lnN_ch5and6
+rm wv_semil_ch5to6combined_lnN.txt
+combineCards.py wv_semil_ch5boosted.txt wv_semil_ch6boosted.txt > wv_semil_ch5to6combined_lnN.txt
+text2workspace.py -m 126 wv_semil_ch5to6combined_lnN.txt -o Example_lnNall_workspace_mytests_lnNall_negative_ch5to6.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch5,ch6
+cp wv_semil_ch5to6boosted_lnN.txt wv_semil_ch6boosted_lnN_shapeVSlnN_mytests_lnNall_negative_ch5to6.txt
+combine Example_lnNall_workspace_mytests_lnNall_negative_ch5to6.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN_mytests_lnNall_negative_ch5to6.root
+python build1DInterval_dkg.py -0.03 0.03  higgsCombineTest.MultiDimFit.mH120_lnNall_shapeVSlnN_mytests_lnNall_negative_ch5to6.root dkg
+
+==========================================
+//
+//		shape my tests
+//
+
+python buildWZworkspace_shape_shapeVSlnN_myTest.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace_mytests_SIGNALzeroSystDown.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_SIGNALzeroSystDown.txt
+combine Example_shape_workspace_mytests.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 | tee out_testing_ch6_shapeAll_oneBin_SIGNALzeroSystDown
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_SIGNALzeroSystDown.root
+
+
+
+python buildWZworkspace_shape_shapeVSlnN_myTest.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace_mytests_SIGNALnegativeSystDown.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_SIGNALnegativeSystDown.txt
+combine Example_shape_workspace_mytests.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 | tee out_testing_ch6_shapeAll_oneBin_SIGNALnegativeSystDown
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_SIGNALnegativeSystDown.root
+
+
+python buildWZworkspace_shape_shapeVSlnN_myTest.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace_mytests_BKGzllzeroSystDown.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_BKGzllzeroSystDown.txt
+combine Example_shape_workspace_mytests.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 | tee out_testing_ch6_shapeAll_oneBin_BKGzllzeroSystDown
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllzeroSystDown.root
+
+
+
+python buildWZworkspace_shape_shapeVSlnN_myTest.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace_mytests_BKGzllnegativeSystDown.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown.txt
+combine Example_shape_workspace_mytests.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2 | tee out_testing_ch6_shapeAll_oneBin_BKGzllnegativeSystDown
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown.root
+
+
+(07.05.)
+
+//// ch6:
+python buildWZworkspace_shape_shapeVSlnN_myTest_noNegative.py --config=config_shapeVSlnN
+
+text2workspace.py -m 126 wv_semil_ch6boosted.txt -o Example_shape_workspace_mytests_BKGzllnegativeSystDown.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch6
+cp wv_semil_ch6boosted.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown.txt
+combine Example_shape_workspace_mytests_BKGzllnegativeSystDown.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown.root
+python build1DInterval_dkg.py -0.03 0.03 higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown.root dkg
+
+//// ch5 and ch6:
+
+python buildWZworkspace_shape_shapeVSlnN_myTest_noNegative.py --config=config_shapeVSlnN_ch5and6
+rm wv_semil_ch5to6combined.txt
+combineCards.py wv_semil_ch5boosted.txt wv_semil_ch6boosted.txt > wv_semil_ch5to6combined.txt
+text2workspace.py -m 126 wv_semil_ch5to6combined.txt -o Example_shape_workspace_mytests_BKGzllnegativeSystDown_5to6.root -P CombinedEWKAnalysis.CommonTools.HagiwaraAndZeppenfeldTwoDimensionalModel_wz:dkglZModel_wz --PO channels=ch5,ch6
+cp wv_semil_ch5to6combined.txt wv_semil_ch6boosted_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown_5to6.txt
+combine Example_shape_workspace_mytests_BKGzllnegativeSystDown_5to6.root -M MultiDimFit -P dkg --floatOtherPOIs=0 --algo=grid --points=1001 --minimizerStrategy=2
+cp higgsCombineTest.MultiDimFit.mH120.root higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown_5to6.root
+python build1DInterval_dkg.py -0.03 0.03 higgsCombineTest.MultiDimFit.mH120_shape_shapeVSlnN_mytests_BKGzllnegativeSystDown_5to6.root dkg
+
+
+
+=============================================
+
+Example_lnNall_workspace_mytests_lnNall_negative.root
+Example_shape_workspace_mytests_BKGzllnegativeSystDown.root
