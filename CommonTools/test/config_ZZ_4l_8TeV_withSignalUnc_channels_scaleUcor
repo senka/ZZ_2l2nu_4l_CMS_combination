@@ -1,0 +1,18 @@
+[Global]
+par1Name = dk
+par1PlotName = #lambda
+par2Name = lam
+par2PlotName = #Delta g^{Z}
+
+[mu_ZZ_4l_8TeV]
+bkg_shape_syst=background_muboosted_backshape
+signal_shape_syst=zz2l2nu_CMS_hzz2l2v_QCD_JVeto,ZZ_4l_other
+
+[el_ZZ_4l_8TeV]
+bkg_shape_syst=background_elboosted_backshape
+signal_shape_syst=zz2l2nu_CMS_hzz2l2v_QCD_JVeto,ZZ_4l_other
+
+[elmu_ZZ_4l_8TeV]
+bkg_shape_syst=background_elmuboosted_backshape
+signal_shape_syst=zz2l2nu_CMS_hzz2l2v_QCD_JVeto,ZZ_4l_other
+

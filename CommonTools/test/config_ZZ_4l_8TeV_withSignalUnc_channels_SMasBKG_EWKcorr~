@@ -1,0 +1,56 @@
+[Global]
+par1Name = dk
+par1PlotName = #lambda
+par2Name = lam
+par2PlotName = #Delta g^{Z}
+NlnN=3
+lnN1_name=lumi_8TeV
+lnN1_value=1.022,1.022,1.022,1.022,1.022,1.022
+lnN1_for=mu_ZZ_4l_8TeV_SMasBKG_signal,mu_ZZ_4l_8TeV_SMasBKG_dibosonSM,el_ZZ_4l_8TeV_SMasBKG_signal,el_ZZ_4l_8TeV_SMasBKG_dibosonSM,elmu_ZZ_4l_8TeV_SMasBKG_signal,elmu_ZZ_4l_8TeV_SMasBKG_dibosonSM
+lnN2_name=pdf_VV
+lnN2_value=1.04,1.04,1.04,1.04,1.04,1.04
+lnN2_for=mu_ZZ_4l_8TeV_SMasBKG_signal,mu_ZZ_4l_8TeV_SMasBKG_dibosonSM,el_ZZ_4l_8TeV_SMasBKG_signal,el_ZZ_4l_8TeV_SMasBKG_dibosonSM,elmu_ZZ_4l_8TeV_SMasBKG_signal,elmu_ZZ_4l_8TeV_SMasBKG_dibosonSM
+lnN3_name=CMS_eff_c
+lnN3_value=1.03,1.03,1.03,1.03,1.03,1.03
+lnN3_for=mu_ZZ_4l_8TeV_SMasBKG_signal,mu_ZZ_4l_8TeV_SMasBKG_dibosonSM,el_ZZ_4l_8TeV_SMasBKG_signal,el_ZZ_4l_8TeV_SMasBKG_dibosonSM,elmu_ZZ_4l_8TeV_SMasBKG_signal,elmu_ZZ_4l_8TeV_SMasBKG_dibosonSM
+
+[mu_ZZ_4l_8TeV_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,ZZ_4l_otherSM
+bkg2_name=background
+bkg2_shape_syst=background_muboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto,ZZ_4l_other
+NSigBkg_corr_unc=2
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+correlated_SigBkg_unc2_name=ZZ_4l_other
+correlated_SigBkg_unc2=ZZ_4l_other,ZZ_4l_otherSM
+
+[el_ZZ_4l_8TeV_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,ZZ_4l_otherSM
+bkg2_name=background
+bkg2_shape_syst=background_elboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto,ZZ_4l_other
+NSigBkg_corr_unc=2
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+correlated_SigBkg_unc2_name=ZZ_4l_other
+correlated_SigBkg_unc2=ZZ_4l_other,ZZ_4l_otherSM
+
+
+[elmu_ZZ_4l_8TeV_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,ZZ_4l_otherSM
+bkg2_name=background
+bkg2_shape_syst=background_elmuboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto,ZZ_4l_other
+NSigBkg_corr_unc=2
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+correlated_SigBkg_unc2_name=ZZ_4l_other
+correlated_SigBkg_unc2=ZZ_4l_other,ZZ_4l_otherSM
+

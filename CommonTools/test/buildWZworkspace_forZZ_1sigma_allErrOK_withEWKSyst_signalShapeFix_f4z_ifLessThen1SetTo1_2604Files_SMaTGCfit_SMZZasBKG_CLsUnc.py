@@ -538,6 +538,10 @@ lumi_7TeV       \t    lnN \t    1.022             """
         for i in range(0,Nbkg_int):
             if (i==2 or i==3): card += """\t\t\t\t1.022""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
             else: card += """\t\t\t\t-""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
+        card += """           
+ATGC_fit_7TeV       \t    lnN \t    1.1             """
+        for i in range(0,Nbkg_int):
+            card += """\t\t\t\t-""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
     else:
         card += """           
 ------------
@@ -545,6 +549,10 @@ lumi_8TeV       \t    lnN \t    1.026             """
         for i in range(0,Nbkg_int):
             if (i==2 or i==3): card += """\t\t\t\t1.026""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
             else: card += """\t\t\t\t-""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
+        card += """           
+ATGC_fit_8TeV       \t    lnN \t    1.1             """
+        for i in range(0,Nbkg_int):
+            card += """\t\t\t\t-""".format(codename=codename,norm_sig_sm=norm_sig_sm,norm_bkg=norm_bkg,norm_obs=norm_obs)
 
     
     card += """       

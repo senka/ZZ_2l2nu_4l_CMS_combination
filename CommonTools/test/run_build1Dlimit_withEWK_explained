@@ -43,7 +43,7 @@ python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH1
 # 2l2nu(7TeV)
 echo -e "\n\t2l2nu(7)" >> limits_withEWK
 echo -e "\t\tobs" >> limits_withEWK
-python build1DInterval_short_lZ.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_smzzasbkg.root lZ >> limits_withEWK
+python build1DInterval_short_lZ.py -0.02 0.02 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_7TeV_scaleaTGCUncOptimistic_f4z_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root lZ >> limits_withEWK
 
 # 2l2nu(8TeV)
 echo -e "\n\t2l2nu(8TeV)" >> limits_withEWK
@@ -95,7 +95,7 @@ python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH
 # 2l2nu(7TeV) -> rerun
 echo -e "\n\t2l2nu(7)" >> limits_withEWK
 echo -e "\t\tobs" >> limits_withEWK
-python build1DInterval_short_dkg.py -0.008 0.008 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root dkg >> limits_withEWK
+python build1DInterval_short_dkg.py -0.02 0.02 higgsCombineTest.MultiDimFit.mH120_ZZ2l2nu_f4g_ifLessThen1SetTo1_2604files_SMaTGCfit_7TeV_allUnc_CLsUnc_SMZZasBKG.root dkg >> limits_withEWK
 
 
 # 2l2nu(8TeV) -> rerun

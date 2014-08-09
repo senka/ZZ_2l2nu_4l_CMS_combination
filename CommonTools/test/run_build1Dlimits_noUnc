@@ -1,0 +1,11 @@
+
+
+python build1DInterval_lZ.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_dk0_all_5kPoints_1D_lZ_noUnc_exp.root lZ
+python build1DInterval_dkg.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_dk0_all_5kPoints_1D_dkg_noUnc_exp.root dkg
+python build1DInterval_lZ.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_lam0_all_5kPoints_1D_lZ_noUnc_exp.root lZ
+python build1DInterval_dkg.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_lam0_all_5kPoints_1D_dkg_noUnc_exp.root dkg
+
+python build1DInterval_lZ.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_dk0_all_5kPoints_1D_lZ_noUnc.root lZ
+python build1DInterval_dkg.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_dk0_all_5kPoints_1D_dkg_noUnc.root dkg
+python build1DInterval_lZ.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_lam0_all_5kPoints_1D_lZ_noUnc.root lZ
+python build1DInterval_dkg.py -0.5 0.5 higgsCombineTest.MultiDimFit.mH120_WZ_lam0_all_5kPoints_1D_dkg_noUnc.root dkg

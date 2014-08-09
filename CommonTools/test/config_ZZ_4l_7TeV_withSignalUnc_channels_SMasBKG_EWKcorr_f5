@@ -1,0 +1,53 @@
+[Global]
+par1Name = dk
+par1PlotName = #lambda
+par2Name = lam
+par2PlotName = #Delta g^{Z}
+NlnN=4
+lnN1_name=lumi_7TeV
+lnN1_value=1.022,1.022,1.022,1.022,1.022,1.022
+lnN1_for=mu_ZZ_4l_7TeV_f5_SMasBKG_signal,mu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,el_ZZ_4l_7TeV_f5_SMasBKG_signal,el_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,elmu_ZZ_4l_7TeV_f5_SMasBKG_signal,elmu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM
+lnN2_name=pdf_VV
+lnN2_value=1.04,1.04,1.04,1.04,1.04,1.04
+lnN2_for=mu_ZZ_4l_7TeV_f5_SMasBKG_signal,mu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,el_ZZ_4l_7TeV_f5_SMasBKG_signal,el_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,elmu_ZZ_4l_7TeV_f5_SMasBKG_signal,elmu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM
+lnN3_name=CMS_eff_c
+lnN3_value=1.03,1.03,1.03,1.03,1.03,1.03
+lnN3_for=mu_ZZ_4l_7TeV_f5_SMasBKG_signal,mu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,el_ZZ_4l_7TeV_f5_SMasBKG_signal,el_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,elmu_ZZ_4l_7TeV_f5_SMasBKG_signal,elmu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM
+lnN4_name=CMS_ZZ_4l_7TeV_f5_signalOther
+lnN4_value=1.1308,1.1308,1.1308,1.1308,1.1308,1.1308
+lnN4_for=mu_ZZ_4l_7TeV_f5_SMasBKG_signal,mu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,el_ZZ_4l_7TeV_f5_SMasBKG_signal,el_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM,elmu_ZZ_4l_7TeV_f5_SMasBKG_signal,elmu_ZZ_4l_7TeV_f5_SMasBKG_dibosonSM
+
+[mu_ZZ_4l_7TeV_f5_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,CMS_hzz2l2v_ewk
+bkg2_name=background
+bkg2_shape_syst=background_7TeV_muboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto
+NSigBkg_corr_unc=1
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+
+[el_ZZ_4l_7TeV_f5_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,CMS_hzz2l2v_ewk
+bkg2_name=background
+bkg2_shape_syst=background_7TeV_elboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto
+NSigBkg_corr_unc=1
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+
+
+[elmu_ZZ_4l_7TeV_f5_SMasBKG]
+Nbkg=2
+bkg1_name=dibosonSM
+bkg1_shape_syst=CMS_hzz2l2v_QCD_ACC_JVetoSM,CMS_hzz2l2v_ewk
+bkg2_name=background
+bkg2_shape_syst=background_7TeV_elmuboosted_backshape
+signal_shape_syst=CMS_hzz2l2v_QCD_ACC_JVeto
+NSigBkg_corr_unc=1
+correlated_SigBkg_unc1_name=CMS_hzz2l2v_QCD_ACC_JVeto
+correlated_SigBkg_unc1=CMS_hzz2l2v_QCD_ACC_JVeto,CMS_hzz2l2v_QCD_ACC_JVetoSM
+
